@@ -1,41 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager gameManager { get; private set; }
     private Scene currentScene;
-    public GameObject PauseMenu;
+
+    private int currentScore = 0;
 
     private bool isPaused = false;
 
     private void Awake()
     {
+        if (gameManager == null)
+        {
+            gameManager = this;
+        }
+
         currentScene = SceneManager.GetActiveScene();
         Debug.Log("Current Scene: " + currentScene.name);
     }
 
-    private void Update()
+    public void StartGame()
     {
-        if(currentScene.name == "GameScene")
-            if (Input.GetKeyDown(KeyCode.Escape))   
-            {
-                PauseGame();
-            }
-        
+        SceneManager.LoadScene("GameScene");
     }
 
-    private void PauseGame()
+    public void PauseGame(GameObject pauseMenu)
     {
         isPaused = !isPaused;
-        PauseMenu.SetActive(isPaused);
+        pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0 : 1;
     }
 
-    private void ExitGame()
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void AddScore(int score)
+    {
+        currentScore += score;
+        Debug.Log("Current Score: " + currentScore);
     }
 }
