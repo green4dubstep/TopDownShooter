@@ -15,5 +15,5 @@ MonoBehaviour:
   maxHealth: 200
   sprite: {fileID: 0}
   currentHealth: 200
-  maxSpeed: 2
-  currentSpeed: 2
+  maxSpeed: 5
+  currentSpeed: 3

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Entity entity;
     private Rigidbody2D rb;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

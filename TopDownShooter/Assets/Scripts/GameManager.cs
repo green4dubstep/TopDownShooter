@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager { get; private set; }
-    private Scene currentScene;
 
     private int currentScore = 0;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     private void Awake()
     {
@@ -20,8 +19,11 @@ public class GameManager : MonoBehaviour
             gameManager = this;
         }
 
-        currentScene = SceneManager.GetActiveScene();
-        Debug.Log("Current Scene: " + currentScene.name);
+        if (!isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+        }
     }
 
     public void StartGame()
@@ -34,6 +36,18 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0 : 1;
+
+        if(isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+        }
+
     }
 
     public void ReturnToMainMenu()
