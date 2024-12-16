@@ -3715,6 +3715,7 @@ GameObject:
   - component: {fileID: 1502588601}
   - component: {fileID: 1502588600}
   - component: {fileID: 1502588599}
+  - component: {fileID: 1502588603}
   m_Layer: 5
   m_Name: PlayerHud
   m_TagString: Untagged
@@ -3806,6 +3807,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1502588603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502588598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8cebf1a65c5e44ba3dad81b7b7a648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 52247e02ce799e44dac969899f0da8ac, type: 2}
+  scoreText: {fileID: 899806187}
+  healthText: {fileID: 1898196685}
 --- !u!1 &1712090816
 GameObject:
   m_ObjectHideFlags: 0

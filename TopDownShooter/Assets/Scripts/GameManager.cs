@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager { get; private set; }
 
-    private int currentScore = 0;
+    public int currentScore = 0;
 
     public bool isPaused = false;
 
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = false;
         }
+        currentScore = 0;
     }
 
     public void StartGame()
